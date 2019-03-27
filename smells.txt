@@ -1,0 +1,2 @@
+Question 1:
+The code smell was repeated code. We created a function called tryAddPluginToMapthat took two parameters: a Map and a plugin. This method replaced two instances of the same code.
