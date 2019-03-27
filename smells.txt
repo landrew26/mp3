@@ -1,2 +1,5 @@
 Question 1:
 The code smell was repeated code. We created a function called tryAddPluginToMapthat took two parameters: a Map and a plugin. This method replaced two instances of the same code.
+
+Question 3: 
+Since updateAndTrim is already using jenkins.updateComputerList() and jenkins.trimLabels(), so we should have the function we created in Jenkins.java instead of Nodes.java.
