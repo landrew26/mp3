@@ -1,4 +1,4 @@
-/*
+ /*
  * The MIT License
  *
  * Copyright (c) 2004-2011, Sun Microsystems, Inc., Kohsuke Kawaguchi,
@@ -474,6 +474,11 @@ public class Jenkins extends AbstractCIBase implements DirectlyModifiableTopLeve
      * Active {@link Cloud}s.
      */
     public final Hudson.CloudList clouds = new Hudson.CloudList(this);
+
+    public void updateAndTrim() {
+        updateComputerList();
+        trimLabels();
+    }
 
     public static class CloudList extends DescribableList<Cloud,Descriptor<Cloud>> {
         public CloudList(Jenkins h) {
