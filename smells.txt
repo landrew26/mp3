@@ -3,3 +3,6 @@ The code smell was repeated code. We created a function called tryAddPluginToMap
 
 Question 3: 
 Since updateAndTrim is already using jenkins.updateComputerList() and jenkins.trimLabels(), so we should have the function we created in Jenkins.java instead of Nodes.java.
+
+Question 4: 
+The four statements can be reduced into one within a for or while loop.
