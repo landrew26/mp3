@@ -1057,22 +1057,20 @@ public abstract class HudsonTestCase extends TestCase implements RootAction {
     }
 
     public void assertXPathValue(DomNode page, String xpath, String expectedValue) {
-        Object node = page.getFirstByXPath(xpath);
+        String textString = getTextString(page, xpath);
+        assertEquals("xpath value should match for " + xpath, expectedValue, textString);
+    }
+	
+    private String getTextString(DomNode page, String xpath){
+	Object node = page.getFirstByXPath(xpath);
         assertNotNull("no node found", node);
         assertTrue("the found object was not a Node " + xpath, node instanceof org.w3c.dom.Node);
-
-        org.w3c.dom.Node n = (org.w3c.dom.Node) node;
-        String textString = n.getTextContent();
-        assertEquals("xpath value should match for " + xpath, expectedValue, textString);
+        org.w3c.dom.Node n = (org.w3c.dom.Node) node; 
+	return n.getTextContent();
     }
 
     public void assertXPathValueContains(DomNode page, String xpath, String needle) {
-        Object node = page.getFirstByXPath(xpath);
-        assertNotNull("no node found", node);
-        assertTrue("the found object was not a Node " + xpath, node instanceof org.w3c.dom.Node);
-
-        org.w3c.dom.Node n = (org.w3c.dom.Node) node;
-        String textString = n.getTextContent();
+        String textString = getTextString(page, xpath);
         assertTrue("needle found in haystack", textString.contains(needle)); 
     }
 
