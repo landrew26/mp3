@@ -6,3 +6,6 @@ Since updateAndTrim is already using jenkins.updateComputerList() and jenkins.tr
 
 Question 4: 
 The four statements can be reduced into one within a for or while loop.
+
+Question 6:
+Using pmd we found duplicated code in the HudsonTestCase.java file starting at line 1056. We chose to extract these 10 repeated lines into a seperate function.
